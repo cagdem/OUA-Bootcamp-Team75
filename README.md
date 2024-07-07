@@ -44,8 +44,15 @@ Oyuncuların gerçek zamanlı hava durumu verilerinden etkilenen çeşitli bitki
 - Tanışma ve Oyunun Detaylarını netleştirmek için 2 kez Discord üzerinden toplantı yapılmıştır.
 - **Daily Scrum**: Genelde Whatsapp üzerinden görüşmeler sağlanmıştır. 
   
-Toplantı ve Whatsapp ScreenShotları
+ScreenShotlar
+
 ![image](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/dbe53ace-3093-4fa7-9fbb-0f367b6bd902)
+
+![Screenshot 2024-07-07 233854](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/16e4bf13-3c97-45bc-bf7a-da0c4ad06b15)
+![Screenshot 2024-07-07 233903](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/9adb9a23-8dd6-4d77-bc2a-eee7912141a7)
+
+
+![Screenshot 2024-07-07 233931](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/c243cc8f-4cdb-4a04-a89a-a1a885005177)
 
 - Görsel Tasarım tarafında **Arda**, **Ebrar** ve **Ebru**'nun ağırlıklı olarak rol alacağı, yazılımsal kısımda ise **Çağlar** ile **Duhan**'ın rol alacağı netleştirildi. Karar verilmesi gereken yerlerde ise öncelikle **Product Owner** (**Ebru**) ile ardından takım ile görüşülmesi uygun bulundu. Kişilerin yaptığı işleri yine kendilerinin unity projesinin içine entegre etmesinin zaman kazandıracağı kararına varıldı.
 
