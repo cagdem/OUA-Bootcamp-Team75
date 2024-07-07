@@ -19,6 +19,8 @@ TBD
 ## Oyun Açıklaması
 Oyuncuların gerçek zamanlı hava durumu verilerinden etkilenen çeşitli bitkiler yetiştirdiği ve bakımını yaptığı bir mobil simülasyon oyunudur. Oyuncular bir serayı ve bahçeyi yöneterek her bitkinin kendine özgü ihtiyaçlarının karşılanmasını sağlar. Oyun, deneyimi oyuncunun konumuna ve hava koşullarına göre uyarlamak için yapay zekadan yararlanır.
 
+![Mekanik](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/822fcc86-5db8-47f3-a5e0-08955f09729a)
+
 ## Oyunun Türü
 - Simulasyon
 - Resource Management
@@ -48,7 +50,6 @@ Toplantı ve Whatsapp ScreenShotları
 - Görsel Tasarım tarafında **Arda**, **Ebrar** ve **Ebru**'nun ağırlıklı olarak rol alacağı, yazılımsal kısımda ise **Çağlar** ile **Duhan**'ın rol alacağı netleştirildi. Karar verilmesi gereken yerlerde ise öncelikle **Product Owner** (**Ebru**) ile ardından takım ile görüşülmesi uygun bulundu. Kişilerin yaptığı işleri yine kendilerinin unity projesinin içine entegre etmesinin zaman kazandıracağı kararına varıldı.
 
 - **Sprint 1 board update**: Sprint Board Screenshot: 
-
 
   **Sprint Review**:
 - GDD baz alınarak product backlog doldurulmuştur.
