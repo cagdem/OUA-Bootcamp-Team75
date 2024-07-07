@@ -51,21 +51,21 @@ ScreenShotlar
 ![Screenshot 2024-07-07 233854](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/16e4bf13-3c97-45bc-bf7a-da0c4ad06b15)
 ![Screenshot 2024-07-07 233903](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/9adb9a23-8dd6-4d77-bc2a-eee7912141a7)
 
-![Screenshot 2024-07-07 235633](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/fee83848-fefe-4afc-8fcc-704cc8c9a675)
-
 ![Screenshot 2024-07-07 233931](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/c243cc8f-4cdb-4a04-a89a-a1a885005177)
 
 - Görsel Tasarım tarafında **Arda**, **Ebrar** ve **Ebru**'nun ağırlıklı olarak rol alacağı, yazılımsal kısımda ise **Çağlar** ile **Duhan**'ın rol alacağı netleştirildi. Karar verilmesi gereken yerlerde ise öncelikle **Product Owner** (**Ebru**) ile ardından takım ile görüşülmesi uygun bulundu. Kişilerin yaptığı işleri yine kendilerinin unity projesinin içine entegre etmesinin zaman kazandıracağı kararına varıldı.
 
-- **Sprint 1 board update**: Sprint Board Screenshot: 
+- **Sprint 1 board update**: Sprint Board Screenshot:
+
+![Screenshot 2024-07-07 235633](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/fee83848-fefe-4afc-8fcc-704cc8c9a675)
 
   **Sprint Review**:
-- GDD baz alınarak product backlog doldurulmuştur.
-- Kullanılacak assetlerin ve teknolojilerin detaylarının araştırılması bu sprint yapılamamıştır.
-- Sprint Review katılımcıları: Arda Yalçınkaya, Çağlar Demir, Duhan Köse, Ebrar Tekiş, Ebru Karademir
+  - GDD baz alınarak product backlog doldurulmuştur.
+  - Kullanılacak assetlerin ve teknolojilerin detaylarının araştırılması bu sprint yapılamamıştır.
+  - Sprint Review katılımcıları: Arda Yalçınkaya, Çağlar Demir, Duhan Köse, Ebrar Tekiş, Ebru Karademir
 
   **Sprint Retrospective:**
-- Taskları çıkarmakta geç kalındığı için bu sprint herhangi bir geliştirme veya araştırma yapılamamıştır. Bu yüzden sonraki sprintte bu açığın kapatılması gerektiği konuşuldu.
-- Yeni sprintin başında zaman kaybedilmeden taskların puanlanıp atamalarının yapılması gerektiği konuşuldu.
-- Takım üyelerinin yoğunluklarına göre alacakları puanların belirlenmesi gerektiği konuşuldu.
+  - Taskları çıkarmakta geç kalındığı için bu sprint herhangi bir geliştirme veya araştırma yapılamamıştır. Bu yüzden sonraki sprintte bu açığın kapatılması gerektiği konuşuldu.
+  - Yeni sprintin başında zaman kaybedilmeden taskların puanlanıp atamalarının yapılması gerektiği konuşuldu.
+  - Takım üyelerinin yoğunluklarına göre alacakları puanların belirlenmesi gerektiği konuşuldu.
 
