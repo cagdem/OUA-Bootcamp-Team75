@@ -35,3 +35,28 @@ Oyuncuların gerçek zamanlı hava durumu verilerinden etkilenen çeşitli bitki
 - Strateji ve Simülasyon Oyuncuları
 - Doğa ve bahçecilik meraklıları
 - Gündelik oyuncular
+
+---
+# **Sprint 1 (24 Haziran - 7 Temmuz)**
+- Ekip üyelerinin yoğunluğundan dolayı planlama tam yapılamamıştır.
+- Tanışma ve Oyunun Detaylarını netleştirmek için 2 kez Discord üzerinden toplantı yapılmıştır.
+- **Daily Scrum**: Genelde Whatsapp üzerinden görüşmeler sağlanmıştır. 
+  
+Toplantı ve Whatsapp ScreenShotları
+![image](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/dbe53ace-3093-4fa7-9fbb-0f367b6bd902)
+
+- Görsel Tasarım tarafında **Arda**, **Ebrar** ve **Ebru**'nun ağırlıklı olarak rol alacağı, yazılımsal kısımda ise **Çağlar** ile **Duhan**'ın rol alacağı netleştirildi. Karar verilmesi gereken yerlerde ise öncelikle **Product Owner** (**Ebru**) ile ardından takım ile görüşülmesi uygun bulundu. Kişilerin yaptığı işleri yine kendilerinin unity projesinin içine entegre etmesinin zaman kazandıracağı kararına varıldı.
+
+- **Sprint 1 board update**: Sprint Board Screenshot: 
+<img width="1179" alt="Trello 1  Sprint" src="https://github.com/kevsoOther/U-21-Cherry-Chasers/assets/170053523/4802c0e5-d5ca-4d28-90d1-243e742f5974">
+
+  **Sprint Review**:
+- GDD baz alınarak product backlog doldurulmuştur.
+- Kullanılacak assetlerin ve teknolojilerin detaylarının araştırılması bu sprint yapılamamıştır.
+- Sprint Review katılımcıları: Arda Yalçınkaya, Çağlar Demir, Duhan Köse, Ebrar Tekiş, Ebru Karademir
+
+  **Sprint Retrospective:**
+- Taskları çıkarmakta geç kalındığı için bu sprint herhangi bir geliştirme veya araştırma yapılamamıştır. Bu yüzden sonraki sprintte bu açığın kapatılması gerektiği konuşuldu.
+- Yeni sprintin başında zaman kaybedilmeden taskların puanlanıp atamalarının yapılması gerektiği konuşuldu.
+- Takım üyelerinin yoğunluklarına göre alacakları puanların belirlenmesi gerektiği konuşuldu.
+
