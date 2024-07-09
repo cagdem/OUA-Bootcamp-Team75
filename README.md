@@ -40,7 +40,8 @@ Oyuncuların gerçek zamanlı hava durumu verilerinden etkilenen çeşitli bitki
 
 ---
 # **Sprint 1 (24 Haziran - 7 Temmuz)**
-- Ekip üyelerinin yoğunluğundan dolayı planlama tam yapılamamıştır.
+- Sprint içi puan değerlendirmesi 18 olarak belirlenmiştir (araştırma, gdd'nin temelini ve asset hazırlama taskları).
+- Puan tamamlama mantığı: Şu an backlogta optional olanlar da dahil 55 puanlık iş bulunmakta. İlk sprintte araştırma, gdd'nin temelini ve asset hazırlama tasklarının hepsini bitirmeyi planladık ancak sadece gdd'nin temelini hazırlama taskı tamamlanabildi. Kalan 10 puanlık tasklardan araştırma taskları araştırma ve implemente etme taskı haline getirildi. 2. sprintte yapılması bekleniyor. 
 - Tanışma ve Oyunun Detaylarını netleştirmek için 2 kez Discord üzerinden toplantı yapılmıştır.
 - **Daily Scrum**: Genelde Whatsapp üzerinden görüşmeler sağlanmıştır. 
   
@@ -57,7 +58,7 @@ ScreenShotlar
 
 - **Sprint 1 board update**: Sprint Board Screenshot:
 
-![Screenshot 2024-07-07 235633](https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/fee83848-fefe-4afc-8fcc-704cc8c9a675)
+<img width="1167" alt="image" src="https://github.com/cagdem/OUA-Bootcamp-Team75/assets/15106912/0fb68242-4c30-4a91-a42a-7a8fee52a55d">
 
   **Sprint Review**:
   - GDD baz alınarak product backlog doldurulmuştur.
