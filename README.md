@@ -70,3 +70,50 @@ ScreenShotlar
   - Yeni sprintin başında zaman kaybedilmeden taskların puanlanıp atamalarının yapılması gerektiği konuşuldu.
   - Takım üyelerinin yoğunluklarına göre alacakları puanların belirlenmesi gerektiği konuşuldu.
 
+---
+# **Sprint 2 (8 Temmuz - 21 Temmuz)**
+- Oyunu tamamlamak için gereken süre azaldığı için önlem olarak, boarda bazı tasklar çıkarıldı. Ancak bazı temel unsurları (örneğin retention'ı arttırmak için push notification atılması gibi) atladığımızı fark ettiğimiz için yeni tasklar da aldık.
+- Sprint içi puan değerlendirmesi 24 olarak belirlenmiştir (Assetlerin ve temel level'ın hazırlanması, bazı mekaniklerin tamamlanması).
+- Puan tamamlama mantığı: Yeni haliyle şu an backlogta toplamda optional 30 puan, yapılmayı bekleyen 31 puan, yapılmaya devam edilen 11 puan ve tamamlanmış 21 puanlık task var. Boardda toplamda 93 puanlık iş bulunmakta. Bu sprint takım üyelerinin kişisel sebeplerden oluşan yoğunlukları sebebiyle hedeflenen (24 hedeflenmişti, 13 puan tamamlanabildi, 11 puan hangover oldu) seviyeye gelinemedi. Hangover olan taskların ilk fırsatta tamamlanıp kalan optional olmayan taskların da sprintin ortalarına kadar tamamlanması gerektiği konuşuldu 
+- Taskları detaylandırma, eksik taskların açılması ve puanlanması, tasarım dilinin netleşmesi netleşmesi adına 3 kez Discord üzerinden toplantı yapılmıştır.
+- **Daily Scrum**: Genelde Whatsapp üzerinden görüşmeler sağlanmıştır. 
+  
+# **ScreenShotlar**
+
+Dailyler
+
+![Daily 1](https://github.com/user-attachments/assets/f07a4224-a6f8-4ddf-b233-51332afb5a46)
+![Daily 2](https://github.com/user-attachments/assets/2c39573c-cc6f-4296-9183-626f5e79fe95)
+![Daily 3](https://github.com/user-attachments/assets/0c6d0deb-e653-48fd-a315-47082e0e5bd6)
+![Daily 4](https://github.com/user-attachments/assets/0c66b9b5-650f-48ca-bfab-aa850dff1518)
+
+Oyun içi Görseller ve Mekanik Testleri
+
+![Level Design1](https://github.com/user-attachments/assets/fbe5493d-eb18-4574-bcc5-31e1af8eca7f)
+![Level Design2](https://github.com/user-attachments/assets/4e9a2aae-09e7-4b47-80f5-100592bb08d2)
+
+https://github.com/user-attachments/assets/4be20bb7-6f27-4d8d-9855-ef53c1b5015b
+
+https://github.com/user-attachments/assets/305f82e4-3b57-4ac7-af48-bdca648aac41
+
+Assetler
+
+![Screenshot 2024-07-21 232032](https://github.com/user-attachments/assets/3b97f309-b770-4bbb-b057-1ba04d8e0fb9)
+
+- **Sprint 2 board update**: Sprint Board Screenshot:
+
+![Optional](https://github.com/user-attachments/assets/5ac1ce47-fb56-4bae-899a-4f7e460579a6)
+![Yapılacaklar](https://github.com/user-attachments/assets/3c67ee8f-b8c1-4669-8f5c-8e895e09fc04)
+![Yapılıyor](https://github.com/user-attachments/assets/a771f7f7-a69e-41f6-8dd7-9d7e74a2f47f)
+![Tamamlandı](https://github.com/user-attachments/assets/02d4b859-2220-4db1-b9cb-4db431bee47b)
+
+  **Sprint Review**:
+  - Tamamlanan işler gözden geçirilmiş ve eksik olan noktalar konuşulmuştur.
+  - Backlog gözden geçirilip revize edildi.
+  - Tasarım tarafındaki planlanan işler tamamlamış ancak development tarafındaki işler hangover olmuştur. Developerların hızlanması gerektiği konuşulmuştur.
+  - Son sprinte girdiğimiz için artık daily bilgilendirmelerini sıklaştırmamız ve destek gerektiği anda ekibi haberdar etmemizin elzem olduğu konuşmuştur. Sprintin ortalarına kadar oyunu oynanabilir hale getirmemiz gerektiği konusunda hem fikir olundu.
+  - Sprint Review katılımcıları: Arda Yalçınkaya, Çağlar Demir, Duhan Köse, Ebrar Tekiş, Ebru Karademir
+
+  **Sprint Retrospective:**
+  - Kişisel sebeplerden oluşan yoğunluklar bu sprinti etkilemiştir. Önümüzdeki sprint herkesin müsaitlik durumu değerlendirilmiş ve kimlerin hangi aralıkta aktif olması gerektiği konuşulmuştur. Olası son dakika değişikliklerinde takımın hemen haberdar edilmesinin elzem olduğu konuşulmuştur.
+  - Boardda bulunan ve yapılması zorunlu olan taskların kişilere şimdiden assign edilmesi konuşulmuştur ve kişilerin müsaitlik durumlarına göre atamalar yapılmıştır.
