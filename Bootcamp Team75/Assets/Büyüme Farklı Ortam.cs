@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FlowersGrowth : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class FlowersGrowth : MonoBehaviour
     private bool isInSunnyZone = false;
     private bool previouslyInSunnyZone = false;
     private float sunnyMultiplier = 3f;
+    private Quaternion startRotation;
 
     void Start()
     {
+        startRotation = Quaternion.Euler(0f, Camera.main.transform.transform.rotation.eulerAngles.y, 0f);
+
         // growthTimes dizisinin doğru sayıda elemana sahip olduğundan emin olun
         if (growthTimes.Length != flowerStages.Length - 1)
         {
@@ -22,48 +26,53 @@ public class FlowersGrowth : MonoBehaviour
         }
 
         // Başlangıçta tohum evresini oluşturun
-        Instantiate(flowerStages[currentStage], transform.position, Quaternion.identity, transform);
-
+        Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
     }
 
     void Update()
     {
-        // Çiçeğin güneşli bölge içinde olup olmadığını kontrol edin
-        isInSunnyZone = Vector3.Distance(transform.position, sunnyZone.position) < sunnyZone.localScale.x / 2;
-
-        // Büyüme zamanlayıcısını güncelleyin
-        float currentGrowthTime = growthTimes[currentStage];
-        if (isInSunnyZone)
+        if (sunnyZone != null)
         {
-            currentGrowthTime /= sunnyMultiplier;
+            // Çiçeğin güneşli bölge içinde olup olmadığını kontrol edin
+            isInSunnyZone = Vector3.Distance(transform.position, sunnyZone.position) < sunnyZone.localScale.x / 2;
         }
 
-        // Bölgeler arasında geçiş yaparken büyüme zamanlayıcısını ayarlayın
-        if (isInSunnyZone && !previouslyInSunnyZone)
+        if (currentStage < growthTimes.Length)
         {
-            growthTimer /= sunnyMultiplier;
-        }
-        else if (!isInSunnyZone && previouslyInSunnyZone)
-        {
-            growthTimer *= sunnyMultiplier;
-        }
+            // Büyüme zamanlayıcısını güncelleyin
+            float currentGrowthTime = growthTimes[currentStage];
+            if (isInSunnyZone)
+            {
+                currentGrowthTime /= sunnyMultiplier;
+            }
 
-        previouslyInSunnyZone = isInSunnyZone;
+            // Bölgeler arasında geçiş yaparken büyüme zamanlayıcısını ayarlayın
+            if (isInSunnyZone && !previouslyInSunnyZone)
+            {
+                growthTimer /= sunnyMultiplier;
+            }
+            else if (!isInSunnyZone && previouslyInSunnyZone)
+            {
+                growthTimer *= sunnyMultiplier;
+            }
 
-        growthTimer += Time.deltaTime;
+            previouslyInSunnyZone = isInSunnyZone;
 
-        // Kalan süreyi hesaplayın
-        float remainingTime = currentGrowthTime - growthTimer;
+            growthTimer += Time.deltaTime;
 
-        // Kalan süreyi bir tam sayı olarak hata ayıklama günlüğüne yazdırın
-        
-        Debug.Log($"Kalan Süre: {Mathf.CeilToInt(remainingTime)} saniye");
+            // Kalan süreyi hesaplayın
+            float remainingTime = currentGrowthTime - growthTimer;
 
-        if (currentStage < growthTimes.Length && growthTimer >= currentGrowthTime)
-        {
-            // Bir sonraki aşamaya geçin
-            Grow();
-            growthTimer = 0f; // Zamanlayıcıyı sıfırlayın
+            // Kalan süreyi bir tam sayı olarak hata ayıklama günlüğüne yazdırın
+
+            Debug.Log($"Kalan Süre: {Mathf.CeilToInt(remainingTime)} saniye");
+
+            if (currentStage < growthTimes.Length && growthTimer >= currentGrowthTime)
+            {
+                // Bir sonraki aşamaya geçin
+                Grow();
+                growthTimer = 0f; // Zamanlayıcıyı sıfırlayın
+            }
         }
     }
 
@@ -81,7 +90,7 @@ public class FlowersGrowth : MonoBehaviour
         // Bir sonraki aşamayı oluşturun
         if (currentStage < flowerStages.Length)
         {
-            Instantiate(flowerStages[currentStage], transform.position, Quaternion.identity, transform);
+            Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
         }
     }
 
