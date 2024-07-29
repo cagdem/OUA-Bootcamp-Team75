@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 760ffebbef2ed644c87940a699eb7fe6
+timeCreated: 1468237035
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117348
+  packageName: Lowpoly Simple House
+  packageVersion: 1.0
+  assetPath: Assets/LowpolySimpleHouse/PostProcessing/Editor/Models/BuiltinDebugViewsEditor.cs
+  uploadId: 242229

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 965efa32cf2345647a1c987546e08f86
+timeCreated: 1459956391
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117348
+  packageName: Lowpoly Simple House
+  packageVersion: 1.0
+  assetPath: Assets/LowpolySimpleHouse/PostProcessing/Editor Resources/Monitors/HistogramRender.shader
+  uploadId: 242229

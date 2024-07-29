@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 11852d1b1b034654bb03e7c8fda28fbf
+timeCreated: 1476347976
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117348
+  packageName: Lowpoly Simple House
+  packageVersion: 1.0
+  assetPath: Assets/LowpolySimpleHouse/PostProcessing/Resources/Shaders/GrainGen.shader
+  uploadId: 242229
