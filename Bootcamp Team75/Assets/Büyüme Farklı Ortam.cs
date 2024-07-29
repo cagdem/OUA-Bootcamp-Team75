@@ -1,31 +1,31 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class FlowersGrowth : MonoBehaviour
 {
-    public GameObject[] flowerStages; // Ã‡iÃ§eÄŸin evresini denetleyicide atayÄ±n (planlanan 4)
-    public float[] growthTimes; //  GeÃ§iÅŸ sÃ¼resini denetleyicide atayÄ±n (planlanan 3)
-    private int currentStage = 0;
-    private float growthTimer = 0f;
-    public Transform sunnyZone; // GÃ¼neÅŸli bÃ¶lgeyi denetleyicide atayÄ±n
+    public GameObject[] flowerStages; // Çiçek aşamalarını denetleyicide atayın (beklenen 4 aşama)
+    public GameObject[] driedFlowerStages; // Kurumuş çiçek aşamalarını denetleyicide atayın (beklenen 4 aşama)
+    public float[] growthTimes; // Büyüme geçiş sürelerini denetleyicide atayın (beklenen 3 süre)
+    private int currentStage = 0; // Mevcut aşama indeksi
+    private float growthTimer = 0f; // Büyüme zamanlayıcısı
+    public Transform sunnyZone; // Güneşli bölgeyi denetleyicide atayın
 
-    private bool isInSunnyZone = false;
-    private bool previouslyInSunnyZone = false;
-    private float sunnyMultiplier = 3f;
-    private Quaternion startRotation;
+    private bool isInSunnyZone = false; // Güneşli bölgede olup olmadığını belirtir
+    private bool previouslyInSunnyZone = false; // Daha önce güneşli bölgede olup olmadığını belirtir
+    private float sunnyMultiplier = 3f; // Güneşli bölgede büyüme hızlandırıcı katsayı
+    private Quaternion startRotation; // Başlangıç rotasyonu
 
     void Start()
     {
-        startRotation = Quaternion.Euler(0f, Camera.main.transform.transform.rotation.eulerAngles.y, 0f);
+        startRotation = Quaternion.Euler(0f, Camera.main.transform.rotation.eulerAngles.y, 0f);
 
-        // growthTimes dizisinin doÄŸru sayÄ±da elemana sahip olduÄŸundan emin olun
+        // growthTimes dizisinin doğru sayıda eleman içerdiğinden emin ol
         if (growthTimes.Length != flowerStages.Length - 1)
         {
-            Debug.LogError("BÃ¼yÃ¼me zamanÄ±, BÃ¼yÃ¼me aÅŸamasÄ±ndan 1 element az olmalÄ±!");
+            Debug.LogError("Büyüme süreleri dizisi, çiçek aşamaları dizisinden bir eksik eleman içermelidir!");
             return;
         }
 
-        // BaÅŸlangÄ±Ã§ta tohum evresini oluÅŸturun
+        // İlk tohum aşamasını oluştur
         Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
     }
 
@@ -33,20 +33,20 @@ public class FlowersGrowth : MonoBehaviour
     {
         if (sunnyZone != null)
         {
-            // Ã‡iÃ§eÄŸin gÃ¼neÅŸli bÃ¶lge iÃ§inde olup olmadÄ±ÄŸÄ±nÄ± kontrol edin
+            // Çiçeğin güneşli bölgede olup olmadığını kontrol et
             isInSunnyZone = Vector3.Distance(transform.position, sunnyZone.position) < sunnyZone.localScale.x / 2;
         }
 
         if (currentStage < growthTimes.Length)
         {
-            // BÃ¼yÃ¼me zamanlayÄ±cÄ±sÄ±nÄ± gÃ¼ncelleyin
+            // Büyüme zamanlayıcısını güncelle
             float currentGrowthTime = growthTimes[currentStage];
             if (isInSunnyZone)
             {
                 currentGrowthTime /= sunnyMultiplier;
             }
 
-            // BÃ¶lgeler arasÄ±nda geÃ§iÅŸ yaparken bÃ¼yÃ¼me zamanlayÄ±cÄ±sÄ±nÄ± ayarlayÄ±n
+            // Bölgeler arasında geçiş yaparken büyüme zamanlayıcısını ayarla
             if (isInSunnyZone && !previouslyInSunnyZone)
             {
                 growthTimer /= sunnyMultiplier;
@@ -60,34 +60,33 @@ public class FlowersGrowth : MonoBehaviour
 
             growthTimer += Time.deltaTime;
 
-            // Kalan sÃ¼reyi hesaplayÄ±n
+            // Kalan süreyi hesapla
             float remainingTime = currentGrowthTime - growthTimer;
 
-            // Kalan sÃ¼reyi bir tam sayÄ± olarak hata ayÄ±klama gÃ¼nlÃ¼ÄŸÃ¼ne yazdÄ±rÄ±n
+            // Debugging için kalan süreyi logla
+            Debug.Log($"Kalan Süre: {Mathf.CeilToInt(remainingTime)} saniye");
 
-            Debug.Log($"Kalan SÃ¼re: {Mathf.CeilToInt(remainingTime)} saniye");
-
-            if (currentStage < growthTimes.Length && growthTimer >= currentGrowthTime)
+            if (growthTimer >= currentGrowthTime)
             {
-                // Bir sonraki aÅŸamaya geÃ§in
+                // Bir sonraki aşamaya geç
                 Grow();
-                growthTimer = 0f; // ZamanlayÄ±cÄ±yÄ± sÄ±fÄ±rlayÄ±n
+                growthTimer = 0f; // Zamanlayıcıyı sıfırla
             }
         }
     }
 
-    void Grow()
+    public void Grow()
     {
-        // GeÃ§erli aÅŸama GameObject'ini yok edin
+        // Mevcut aşama GameObject'ini yok et
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
         }
 
-        // AÅŸamayÄ± artÄ±rÄ±n
+        // Aşamayı artır
         currentStage++;
 
-        // Bir sonraki aÅŸamayÄ± oluÅŸturun
+        // Bir sonraki aşamayı oluştur
         if (currentStage < flowerStages.Length)
         {
             Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
@@ -97,5 +96,27 @@ public class FlowersGrowth : MonoBehaviour
     public void AdjustGrowthTimer(float transitionFactor)
     {
         growthTimer *= transitionFactor;
+    }
+
+    // Bu metodu ekleyerek görünümü sıfırla
+    public void ResetAppearance()
+    {
+        // Mevcut aşama GameObject'ini yok et
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Mevcut aşamayı oluştur
+        if (currentStage < flowerStages.Length)
+        {
+            Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
+        }
+    }
+
+    // Bu metodu ekleyerek mevcut aşama indeksini al
+    public int GetCurrentStage()
+    {
+        return currentStage;
     }
 }

@@ -39,21 +39,33 @@ public class UIController : MonoBehaviour
         public Sprite[] val;
     }
 
+    [Serializable]
+    public class KeyDurationPair
+    {
+        public string key;
+        public float[] val;
+    }
+
     public List<KeyGameObjectArrayPair> potsAndPlantsList = new();
     Dictionary<string, Dictionary<string, GameObject[]>> potsAndPlantsDic = new();
 
     public List<KeySpritePair> potsAndSeedSpriteList = new();
     Dictionary<string, Sprite[]> potsAndSeedSpriteDic = new();
 
+    public List<KeyDurationPair> plantDurationList = new();
+    Dictionary<string, float[]> plantDurationDic = new();
+
     void Awake()
     {
         potsAndPlantsDic = potsAndPlantsList.ToDictionary(x => x.key, x => x.val.ToDictionary(y => y.key, y => y.val));
         potsAndSeedSpriteDic = potsAndSeedSpriteList.ToDictionary(x => x.key, x => x.val);
+        plantDurationDic = plantDurationList.ToDictionary(x => x.key, x => x.val);
     }
 
     public void NewPot()
     {
         potPanel.SetActive(true);
+        
     }
 
     public void ChoosePot(TextMeshProUGUI potName)
@@ -94,6 +106,10 @@ public class UIController : MonoBehaviour
 
                 GameObject plantInstance = Instantiate(newPlant, plant.transform);
                 plantInstance.GetComponent<FlowersGrowth>().flowerStages = plantStates;
+                if (plantDurationDic.TryGetValue(selectedSeed, out var durations))
+                {
+                    plantInstance.GetComponent<FlowersGrowth>().growthTimes = durations;
+                }
             }
         }
     }

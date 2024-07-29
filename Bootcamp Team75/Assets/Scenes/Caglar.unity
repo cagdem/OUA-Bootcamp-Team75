@@ -1917,6 +1917,22 @@ MonoBehaviour:
     - {fileID: 21300000, guid: db4b6e8f41c1aa9488d993a9d33aed5e, type: 3}
     - {fileID: 21300000, guid: 5740688195af2584689d3c6a8f91c378, type: 3}
     - {fileID: 21300000, guid: f3922eb052175c042a556523436c17c7, type: 3}
+  plantDurationList:
+  - key: "Ay\xE7i\xE7e\u011Fi"
+    val:
+    - 1
+    - 1
+    - 1
+  - key: "Kakt\xFCs"
+    val:
+    - 5
+    - 5
+    - 5
+  - key: "Menek\u015Fe"
+    val:
+    - 10
+    - 10
+    - 10
 --- !u!1 &1170122156
 GameObject:
   m_ObjectHideFlags: 0
