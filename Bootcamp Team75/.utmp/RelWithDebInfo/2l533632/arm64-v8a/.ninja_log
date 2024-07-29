@@ -1,0 +1,11 @@
+# ninja log v5
+252	502	7432870790382756	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	7bb30031454c42
+503	944	7432870794230509	C:/Users/Duhan/Documents/GitHub/OUA-Bootcamp-Team75/Bootcamp Team75/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2l533632/obj/arm64-v8a/libswappywrapper.so	91af5ec919d2620c
+230	1085	7432870796215922	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	48361517a90fe0a0
+212	1146	7432870796439867	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	24b792bff6f308ab
+236	1147	7432870796624053	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	58234d9b5bdfc52c
+244	1230	7432870797382822	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	240e6b572cd1a391
+218	1242	7432870797814424	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	bd91de2ffd3281a2
+224	1407	7432870799487173	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	abdab7aa358c4b2c
+0	1486	7432870800223019	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a4ac4ab50db7a971
+1487	2002	7432870804886014	C:/Users/Duhan/Documents/GitHub/OUA-Bootcamp-Team75/Bootcamp Team75/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2l533632/obj/arm64-v8a/libgame.so	74c7d221ebaefbaa
