@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f274fde65ad5b6549b9cb026024495c6
+timeCreated: 1524568451
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117348
+  packageName: Lowpoly Simple House
+  packageVersion: 1.0
+  assetPath: Assets/LowpolySimpleHouse/Assets/Prefabs/Prop_Wood_1.prefab
+  uploadId: 242229

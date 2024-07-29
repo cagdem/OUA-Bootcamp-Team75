@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b63179fa97059474fb61f75f60837090
+timeCreated: 1524568469
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117348
+  packageName: Lowpoly Simple House
+  packageVersion: 1.0
+  assetPath: Assets/LowpolySimpleHouse/Assets/Prefabs/Prop_House_TopDeco.prefab
+  uploadId: 242229

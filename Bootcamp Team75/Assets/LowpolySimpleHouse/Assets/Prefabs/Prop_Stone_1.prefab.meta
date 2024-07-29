@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c2210c562db124b4ca87ce48b5f1b4d3
+timeCreated: 1524568463
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117348
+  packageName: Lowpoly Simple House
+  packageVersion: 1.0
+  assetPath: Assets/LowpolySimpleHouse/Assets/Prefabs/Prop_Stone_1.prefab
+  uploadId: 242229

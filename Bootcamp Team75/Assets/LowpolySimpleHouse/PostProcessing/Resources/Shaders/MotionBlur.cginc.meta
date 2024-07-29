@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c83956915580e42489479d2a109470ab
+timeCreated: 1470404606
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117348
+  packageName: Lowpoly Simple House
+  packageVersion: 1.0
+  assetPath: Assets/LowpolySimpleHouse/PostProcessing/Resources/Shaders/MotionBlur.cginc
+  uploadId: 242229
