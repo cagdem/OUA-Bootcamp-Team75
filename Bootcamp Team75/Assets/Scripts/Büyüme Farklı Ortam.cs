@@ -2,35 +2,36 @@ using UnityEngine;
 
 public class FlowersGrowth : MonoBehaviour
 {
-    public GameObject[] flowerStages; // Çiçek aþamalarýný denetleyicide atayýn (beklenen 4 aþama)
-    public GameObject[] driedFlowerStages; // Kurumuþ çiçek aþamalarýný denetleyicide atayýn (beklenen 4 aþama)
-    public float[] growthTimes; // Büyüme geçiþ sürelerini denetleyicide atayýn (beklenen 3 süre)
-    private int currentStage = 0; // Mevcut aþama indeksi
-    private float growthTimer = 0f; // Büyüme zamanlayýcýsý
-    public Transform sunnyZone; // Güneþli bölgeyi denetleyicide atayýn
-
-    private bool isInSunnyZone = false; // Güneþli bölgede olup olmadýðýný belirtir
-    private bool previouslyInSunnyZone = false; // Daha önce güneþli bölgede olup olmadýðýný belirtir
-    private float sunnyMultiplier = 3f; // Güneþli bölgede büyüme hýzlandýrýcý katsayý
-    private Quaternion startRotation; // Baþlangýç rotasyonu
+    public GameObject[] flowerStages; // Çiçek aþamalarýný inspectorda atayýn (4 aþama bekleniyor)
+    public float[] growthTimes; // Büyüme geçiþ sürelerini inspectorda atayýn (3 süre bekleniyor)
+    private int currentStage = 0;
+    private float growthTimer = 0f;
+    public Transform sunnyZone; // Güneþli bölgeyi inspectorda atayýn
+    private bool isInSunnyZone = false;
+    private bool previouslyInSunnyZone = false;
+    private float sunnyMultiplier = 3f;
+    private Quaternion startRotation;
+    private bool isGrowthPaused = false; // Büyümeyi duraklatmak için yeni bayrak
 
     void Start()
     {
         startRotation = Quaternion.Euler(0f, Camera.main.transform.rotation.eulerAngles.y, 0f);
 
-        // growthTimes dizisinin doðru sayýda eleman içerdiðinden emin ol
+        // growthTimes dizisinin doðru sayýda eleman içerdiðinden emin olun
         if (growthTimes.Length != flowerStages.Length - 1)
         {
-            Debug.LogError("Büyüme süreleri dizisi, çiçek aþamalarý dizisinden bir eksik eleman içermelidir!");
+            Debug.LogError("Büyüme süreleri dizisi, çiçek aþamalarý dizisinden bir eksik element içermelidir!");
             return;
         }
 
-        // Ýlk tohum aþamasýný oluþtur
+        // Ýlk tohum aþamasýný instantiate et
         Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
     }
 
     void Update()
     {
+        if (isGrowthPaused) return; // Büyüme duraklatýlmýþsa update'i atla
+
         if (sunnyZone != null)
         {
             // Çiçeðin güneþli bölgede olup olmadýðýný kontrol et
@@ -63,7 +64,7 @@ public class FlowersGrowth : MonoBehaviour
             // Kalan süreyi hesapla
             float remainingTime = currentGrowthTime - growthTimer;
 
-            // Debugging için kalan süreyi logla
+            // Kalan süreyi debug için logla
             Debug.Log($"Kalan Süre: {Mathf.CeilToInt(remainingTime)} saniye");
 
             if (growthTimer >= currentGrowthTime)
@@ -86,7 +87,7 @@ public class FlowersGrowth : MonoBehaviour
         // Aþamayý artýr
         currentStage++;
 
-        // Bir sonraki aþamayý oluþtur
+        // Bir sonraki aþamayý instantiate et
         if (currentStage < flowerStages.Length)
         {
             Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
@@ -98,7 +99,7 @@ public class FlowersGrowth : MonoBehaviour
         growthTimer *= transitionFactor;
     }
 
-    // Bu metodu ekleyerek görünümü sýfýrla
+    // Görünümü sýfýrlamak için bu yöntemi ekleyin
     public void ResetAppearance()
     {
         // Mevcut aþama GameObject'ini yok et
@@ -107,16 +108,27 @@ public class FlowersGrowth : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // Mevcut aþamayý oluþtur
+        // Mevcut aþamayý instantiate et
         if (currentStage < flowerStages.Length)
         {
             Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
         }
     }
 
-    // Bu metodu ekleyerek mevcut aþama indeksini al
+    // Mevcut aþama indeksini almak için bu yöntemi ekleyin
     public int GetCurrentStage()
     {
         return currentStage;
+    }
+
+    // Büyümeyi duraklatmak ve devam ettirmek için bu yöntemleri ekleyin
+    public void PauseGrowth()
+    {
+        isGrowthPaused = true;
+    }
+
+    public void ResumeGrowth()
+    {
+        isGrowthPaused = false;
     }
 }
