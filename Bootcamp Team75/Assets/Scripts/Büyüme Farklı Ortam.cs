@@ -12,10 +12,18 @@ public class FlowersGrowth : MonoBehaviour
     private float sunnyMultiplier = 3f;
     private Quaternion startRotation;
     private bool isGrowthPaused = false; // Büyümeyi duraklatmak için yeni bayrak
+    public bool is2D = false; // 2D
 
     void Start()
     {
-        startRotation = Quaternion.Euler(0f, Camera.main.transform.rotation.eulerAngles.y, 0f);
+        if (is2D)
+        {
+            startRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else
+        {
+            startRotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
+        }
 
         // growthTimes dizisinin doðru sayýda eleman içerdiðinden emin olun
         if (growthTimes.Length != flowerStages.Length - 1)

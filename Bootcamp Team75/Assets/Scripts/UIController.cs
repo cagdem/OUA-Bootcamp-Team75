@@ -12,7 +12,10 @@ public class UIController : MonoBehaviour
     public Image[] seedImages;
 
     public GameObject newPlant;
-    public Transform location;
+    public Transform location3D;
+    public GameObject tableSlot;
+    private RectTransform location2D;
+    public bool isTableSlotEmpty = true;
     private string selectedPot;
     private string selectedSeed;
 
@@ -27,7 +30,8 @@ public class UIController : MonoBehaviour
     public class KeyGameObjectPair
     {
         public string key;
-        public GameObject[] val;
+        public GameObject[] prefabs3D;
+        public GameObject[] prefabs2D;
     }
 
     [Serializable]
@@ -45,7 +49,8 @@ public class UIController : MonoBehaviour
     }
 
     public List<KeyGameObjectArrayPair> potsAndPlantsList = new();
-    Dictionary<string, Dictionary<string, GameObject[]>> potsAndPlantsDic = new();
+    Dictionary<string, Dictionary<string, GameObject[]>> potsAndPlants3DDic = new();
+    Dictionary<string, Dictionary<string, GameObject[]>> potsAndPlants2DDic = new();
 
     public List<KeySpritePair> potsAndSeedSpriteList = new();
     Dictionary<string, Sprite[]> potsAndSeedSpriteDic = new();
@@ -55,15 +60,25 @@ public class UIController : MonoBehaviour
 
     void Awake()
     {
-        potsAndPlantsDic = potsAndPlantsList.ToDictionary(x => x.key, x => x.val.ToDictionary(y => y.key, y => y.val));
+        potsAndPlants3DDic = potsAndPlantsList.ToDictionary(x => x.key, x => x.val.ToDictionary(y => y.key, y => y.prefabs3D));
+        potsAndPlants2DDic = potsAndPlantsList.ToDictionary(x => x.key, x => x.val.ToDictionary(y => y.key, y => y.prefabs2D));
         potsAndSeedSpriteDic = potsAndSeedSpriteList.ToDictionary(x => x.key, x => x.val);
         plantDurationDic = plantDurationList.ToDictionary(x => x.key, x => x.val);
+        location2D = tableSlot.GetComponent<RectTransform>();
     }
+
+    void Update()
+    {
+        isTableSlotEmpty = tableSlot.transform.childCount == 0;
+    }
+
 
     public void NewPot()
     {
-        potPanel.SetActive(true);
-        
+        if (isTableSlotEmpty)
+        {
+            potPanel.SetActive(true);  
+        }
     }
 
     public void ChoosePot(TextMeshProUGUI potName)
@@ -93,13 +108,13 @@ public class UIController : MonoBehaviour
         if (selectedPot is null || selectedSeed is null)
         { return; }
 
-        if(potsAndPlantsDic.TryGetValue(selectedPot, out var plantTypeDic))
+        if(potsAndPlants3DDic.TryGetValue(selectedPot, out var plantTypeDic))
         {
             if (plantTypeDic.TryGetValue(selectedSeed, out var plantStates))
             {
                 GameObject plant = new(selectedPot+selectedSeed);
 
-                plant.transform.SetParent(location);
+                plant.transform.SetParent(location3D);
                 plant.transform.localPosition = new Vector3(0, 0, 0);
 
                 GameObject plantInstance = Instantiate(newPlant, plant.transform);
@@ -107,6 +122,21 @@ public class UIController : MonoBehaviour
                 if (plantDurationDic.TryGetValue(selectedSeed, out var durations))
                 {
                     plantInstance.GetComponent<FlowersGrowth>().growthTimes = durations;
+                }
+
+                if (potsAndPlants2DDic.TryGetValue(selectedPot, out var plantTypeDic2D))
+                {
+                    if (plantTypeDic2D.TryGetValue(selectedSeed, out var plantStates2D))
+                    {
+                        GameObject plant2D = new(selectedPot + selectedSeed + "2D");
+                        plant2D.transform.SetParent(location2D);
+                        plant2D.transform.localPosition = new Vector3(0, 0, 0);
+
+                        GameObject plantInstance2D = Instantiate(newPlant, plant2D.transform);
+                        plantInstance2D.GetComponent<FlowersGrowth>().flowerStages = plantStates2D;
+                        plantInstance2D.GetComponent<FlowersGrowth>().growthTimes = durations;
+                        plantInstance2D.GetComponent<FlowersGrowth>().is2D = true;
+                    }
                 }
             }
         }
