@@ -117,3 +117,51 @@ Assetler
   **Sprint Retrospective:**
   - Kişisel sebeplerden oluşan yoğunluklar bu sprinti etkilemiştir. Önümüzdeki sprint herkesin müsaitlik durumu değerlendirilmiş ve kimlerin hangi aralıkta aktif olması gerektiği konuşulmuştur. Olası son dakika değişikliklerinde takımın hemen haberdar edilmesinin elzem olduğu konuşulmuştur.
   - Boardda bulunan ve yapılması zorunlu olan taskların kişilere şimdiden assign edilmesi konuşulmuştur ve kişilerin müsaitlik durumlarına göre atamalar yapılmıştır.
+
+---
+# **Sprint 3 (22 Temmuz - 2 Ağustos)**
+- Sprint içi puan değerlendirmesi 42 olarak belirlenmiştir.
+- Puan tamamlama mantığı: Yeni haliyle şu an backlogta toplamda optional 30 puan, yapılmayı bekleyen 2 puan, yapılmaya devam edilen 14 puan ve tamamlanmış 47 puanlık task var. Boardda toplamda 93 puanlık iş bulunmakta. Bu sprint son sprint olduğu için bekleyen tüm taskların tamamlanması hedeflenmişti, 42 hedeflenmişti, 26 puan tamamlanabildi, 16 puan hangover oldu.  
+- Son sprint olduğu için discord üstünden sık sık bir araya gelindi, bazen pair çalışıldı.
+- **Daily Scrum**: Genelde Whatsapp ve Disscord üzerinden görüşmeler sağlanmıştır. 
+  
+# **ScreenShotlar**
+
+Dailyler
+
+![daily1](https://github.com/user-attachments/assets/2f584695-6d01-44f3-b2dd-070a860dc3aa)
+![daily2](https://github.com/user-attachments/assets/7bdd589d-3bff-454c-ab65-5cc683eb6c94)
+![daily3](https://github.com/user-attachments/assets/f2dc7b88-52b2-46b9-bc54-e1f8d09adf6c)
+![daily4](https://github.com/user-attachments/assets/16f7472c-7760-4843-9226-e1c40bd45750)
+![daily5](https://github.com/user-attachments/assets/40e489d0-7196-49e4-a0ea-10c70b09f86b)
+![daily6](https://github.com/user-attachments/assets/61513114-9464-4475-a3cc-416b6fad4e86)
+
+Oyun içi Görseller
+
+![bildirim](https://github.com/user-attachments/assets/c721b733-152c-4336-8718-f6d010415544)
+![Screenshot 2024-08-03 014235](https://github.com/user-attachments/assets/3db40a25-c1cf-4dbb-9673-6cd1c58c1000)
+![Screenshot 2024-08-03 014310](https://github.com/user-attachments/assets/8302dc54-7f1a-456b-bdd6-1f5e14695b42)
+![Screenshot 2024-08-03 014352](https://github.com/user-attachments/assets/40959bcb-2b4f-44fd-b290-dcac73cee967)
+![Screenshot 2024-08-03 014402](https://github.com/user-attachments/assets/a2a8881a-e569-492a-8d92-0f7738537cca)
+
+Assetler
+
+![Assetler](https://github.com/user-attachments/assets/bb757706-25d5-4a84-9444-bfcb53b48a29)
+
+- **Sprint 3 board update**: Sprint Board Screenshot:
+
+![Screenshot 2024-08-03 012143](https://github.com/user-attachments/assets/78f2827d-b5e9-46dd-bef4-eea601ec2ea3)
+
+  **Sprint Review**:
+  - Tamamlanan işler gözden geçirilmiş ve eksik olan noktalar konuşulmuştur.
+  - Tasarım tarafındaki planlanan tüm işler tamamlamış ancak development tarafındaki işler hangover olmuştur.
+  - Eklemeyi isteyip ekleyemediğimiz özellikleri bootcamp sonrası kendimizi geliştirmek için ekleyebileceğimizi konuştuk.
+  - Sprint Review katılımcıları: Arda Yalçınkaya, Çağlar Demir, Duhan Köse, Ebrar Tekiş, Ebru Karademir
+
+  **Sprint Retrospective:**
+  - Son sprintte yaptığımız ilerlemeye bakınca eğer kişisel gündemlerimiz olmasa çok daha dolu bir oyun çıkarabileceğimizi gördük.
+  - Sıkışık zamana rağmen hedeflediğimize yakın bir oyun çıkardık. Yapay zeka alternatifi olarak hava durumu apisi kullanmak istiyorduk ancak temel mekanikler çok zaman aldı. Bazı hazırlanan mekanikler haritaya yedirilemedi. Yine de temel oyun tamamlandı.
+
+## **Oyunun Tanıtım Videosu:**
+
+https://youtu.be/tN6zTQmqlbI?si=XJh4gTxnuWLcdI0t
