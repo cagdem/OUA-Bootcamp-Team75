@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.Notifications.Android;
 using UnityEngine;
@@ -16,14 +16,14 @@ public class Bildirimler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Bildirim izni kontrolü ve isteði
+        // Bildirim izni kontrolÃ¼ ve isteÄŸi
         if (!Permission.HasUserAuthorizedPermission("android.permission.POST_NOTIFICATIONS"))
         {
             Permission.RequestUserPermission("android.permission.POST_NOTIFICATIONS");
         }
         else
         {
-            // Ýzin verilmiþse bildirim kanalýný oluþtur
+            // Ä°zin verilmiÅŸse bildirim kanalÄ±nÄ± oluÅŸtur
             CreateNotificationChannel();
         }
     }
@@ -44,26 +44,26 @@ public class Bildirimler : MonoBehaviour
     {
         if (notificationsScheduled) return;
 
-        // Ýlk bildirim
+        // Ä°lk bildirim
         var firstNotification = new AndroidNotification
         {
-            Title = "Sulama Vakti!",
-            Text = "Çiçeklerinin suya ihtiyacý var gibi görünüyor!",
+            Title = "Oyun Vakti!",
+            Text = "ðŸŒ» Kendi bahÃ§eni oluÅŸturmaya ne dersin? ðŸŒ¼ ",
             FireTime = System.DateTime.Now.AddSeconds(10),
-            LargeIcon = "logo", // Resources klasöründe bulunan logo.png
-            SmallIcon = "logo"  // Küçük simgeyi de benzer þekilde ayarlayabilirsiniz, varsayýlan ikon kullanýlabilir.
+            LargeIcon = "logo", // Resources klasÃ¶rÃ¼nde bulunan logo.png
+            SmallIcon = "logo"  // KÃ¼Ã§Ã¼k simgeyi de benzer ÅŸekilde ayarlayabilirsiniz, varsayÄ±lan ikon kullanÄ±labilir.
         };
 
         firstNotificationId = AndroidNotificationCenter.SendNotification(firstNotification, "channel_id");
 
-        // Ýkinci bildirim
+        // Ä°kinci bildirim
         var secondNotification = new AndroidNotification
         {
-            Title = "Kontrol Zamaný!",
-            Text = "Bahçenizin durumunu kontrol edin!",
-            FireTime = System.DateTime.Now.AddSeconds(15),
-            LargeIcon = "logo", // Resources klasöründe bulunan logo.png
-            SmallIcon = "logo"  // Küçük simgeyi de benzer þekilde ayarlayabilirsiniz, varsayýlan ikon kullanýlabilir.
+            Title = "Ã‡iÃ§eÄŸiniz Kuruyor!",
+            Text = "ðŸ’§ Bir an Ã¶nce Ã§iÃ§eÄŸinizi sulayÄ±n! ðŸ’§",
+            FireTime = System.DateTime.Now.AddSeconds(120),
+            LargeIcon = "logo", // Resources klasÃ¶rÃ¼nde bulunan logo.png
+            SmallIcon = "logo"  // KÃ¼Ã§Ã¼k simgeyi de benzer ÅŸekilde ayarlayabilirsiniz, varsayÄ±lan ikon kullanÄ±labilir.
         };
 
         secondNotificationId = AndroidNotificationCenter.SendNotification(secondNotification, "channel_id");

@@ -318,6 +318,7 @@ MonoBehaviour:
   - 5
   - 5
   sunnyZone: {fileID: 1839460986}
+  is2D: 0
 --- !u!135 &102785093
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -669,7 +670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &260460262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3535,68 +3536,43 @@ MonoBehaviour:
   - {fileID: 1352091134}
   - {fileID: 225810115}
   newPlant: {fileID: 3016154818771189081, guid: 25d6acd32c7784849982112a2b1c50b6, type: 3}
-  location: {fileID: 1663402250}
+  location3D: {fileID: 0}
+  tableSlot: {fileID: 0}
+  isTableSlotEmpty: 1
   potsAndPlantsList:
   - key: Turkuaz
     val:
     - key: "Ay\xE7i\xE7e\u011Fi"
-      val:
-      - {fileID: 7290890990465697359, guid: 97a1215935777a447908274e07a6ba86, type: 3}
-      - {fileID: 6512908338045996311, guid: 57d8140840fbaa54fbf656e452bba308, type: 3}
-      - {fileID: 8291103681050110669, guid: 535d0771467dcc24c92d6e4970c080a3, type: 3}
-      - {fileID: 3801472850984048597, guid: cacf3ed9fe185e8419fdf3a5953464fa, type: 3}
+      prefabs3D: []
+      prefabs2D: []
     - key: "Kakt\xFCs"
-      val:
-      - {fileID: 7490356334343864354, guid: 252590c30956b3c47a9379474c1e00d4, type: 3}
-      - {fileID: 2463888165723537430, guid: 909cd150cf13fdf45a1b9471bde4eabf, type: 3}
-      - {fileID: 2844319829575642391, guid: 691fb21ed10c27744bfd173f0b35236c, type: 3}
-      - {fileID: 3291465678670362093, guid: 2a7ce8060657fb443adc4a3dba71d7fc, type: 3}
+      prefabs3D: []
+      prefabs2D: []
     - key: "Menek\u015Fe"
-      val:
-      - {fileID: 5707462026681718212, guid: 70ee2810a4969f8448183904c8d6a80c, type: 3}
-      - {fileID: 3521431089357762775, guid: fd2d91c2844eed14381819137bffe638, type: 3}
-      - {fileID: 7276570946682243554, guid: 79a23c0c91a23754eb09f8f90e945081, type: 3}
-      - {fileID: 4501564519180129734, guid: 2ea4c5953675d224b9b7bb0bb1c09284, type: 3}
+      prefabs3D: []
+      prefabs2D: []
   - key: "A\xE7\u0131k Mavi"
     val:
     - key: "Ay\xE7i\xE7e\u011Fi"
-      val:
-      - {fileID: 8477121496360075305, guid: 1eaf7a1e304f63d4fbd5b5aeb1834733, type: 3}
-      - {fileID: 5697715253426595094, guid: 7dc557448f5231f4fa1984b09669c02c, type: 3}
-      - {fileID: 6242577000748308390, guid: a9452ae5b101d3c4aa44db8b231eec97, type: 3}
-      - {fileID: 73002990919666981, guid: 2d00c3b1f16ef684293280f56e4e5dbe, type: 3}
+      prefabs3D: []
+      prefabs2D: []
     - key: "Kakt\xFCs"
-      val:
-      - {fileID: 4417892185050168300, guid: b8670e988beee4245bd38fc2d9bde730, type: 3}
-      - {fileID: 5631035776889638077, guid: 66298b3b4764b0e46a4fe4e9af4993fc, type: 3}
-      - {fileID: 7553975018123755609, guid: 2cd0729f43213c34392f488dd6cf7a75, type: 3}
-      - {fileID: 7685190560044963173, guid: f83ddf64b4212c14791cda9d15ef3e85, type: 3}
+      prefabs3D: []
+      prefabs2D: []
     - key: "Menek\u015Fe"
-      val:
-      - {fileID: 5467780655837387295, guid: 9ef8e9a63a4364e4985176cfb18ecf83, type: 3}
-      - {fileID: 7908853031742879137, guid: 0b76e50fe90ecbc44b6513ea62fdaac9, type: 3}
-      - {fileID: 3669840268632564350, guid: c7b68503d27ed5f4a93906b55124779f, type: 3}
-      - {fileID: 8170139300450175932, guid: 09b2c7d3eafa8ac42a78d9c3b23a4cd0, type: 3}
+      prefabs3D: []
+      prefabs2D: []
   - key: "Yavrua\u011Fz\u0131"
     val:
     - key: "Ay\xE7i\xE7e\u011Fi"
-      val:
-      - {fileID: 7052959930499908778, guid: 73bff5f24cf93fe4c9defc496f2b739e, type: 3}
-      - {fileID: 7163763616045798072, guid: 8af4d9a1ec764b7458d09d7ebd47a04a, type: 3}
-      - {fileID: 7388602833224078207, guid: e93f30a0f8e3b9940aba3edcfaa8ed38, type: 3}
-      - {fileID: 1549722528699097909, guid: c13673543c438da45abd81c4fa6954fb, type: 3}
+      prefabs3D: []
+      prefabs2D: []
     - key: "Kakt\xFCs"
-      val:
-      - {fileID: 1177468591460602720, guid: 95b47fb121f5f5b419d52667ee549d82, type: 3}
-      - {fileID: 1361500797547670233, guid: 94a1afd98facec943aca222b4e12b3fd, type: 3}
-      - {fileID: 8064930523834139266, guid: 22828af12aeb0254da8fca609ae2e7cd, type: 3}
-      - {fileID: 8872047738465955991, guid: 319827e10d6d493409e9cae73784af46, type: 3}
+      prefabs3D: []
+      prefabs2D: []
     - key: "Menek\u015Fe"
-      val:
-      - {fileID: 3508105847782262194, guid: 8c8f2658208fc844ca38ea1362f92fdb, type: 3}
-      - {fileID: 5448947987172233644, guid: 8cb33d8121ed9ee47b5aa7477bd132f0, type: 3}
-      - {fileID: 7990336445323248927, guid: 9644c6f518961744b8103ac9f85393b5, type: 3}
-      - {fileID: 720122221906484391, guid: ff9b186cfbe050d4ab0a99b7253f07a2, type: 3}
+      prefabs3D: []
+      prefabs2D: []
   potsAndSeedSpriteList:
   - key: Turkuaz
     val:
