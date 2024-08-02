@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public Image[] seedImages;
 
     public GameObject newPlant;
+    public GameObject newPlant2d;
     public Transform location3D;
     public GameObject tableSlot;
     private RectTransform location2D;
@@ -30,8 +31,7 @@ public class UIController : MonoBehaviour
     public class KeyGameObjectPair
     {
         public string key;
-        public GameObject[] prefabs3D;
-        public GameObject[] prefabs2D;
+        public Sprite[] stateImages;
     }
 
     [Serializable]
@@ -49,8 +49,7 @@ public class UIController : MonoBehaviour
     }
 
     public List<KeyGameObjectArrayPair> potsAndPlantsList = new();
-    Dictionary<string, Dictionary<string, GameObject[]>> potsAndPlants3DDic = new();
-    Dictionary<string, Dictionary<string, GameObject[]>> potsAndPlants2DDic = new();
+    Dictionary<string, Dictionary<string, Sprite[]>> potsAndPlantsImagesDic = new();
 
     public List<KeySpritePair> potsAndSeedSpriteList = new();
     Dictionary<string, Sprite[]> potsAndSeedSpriteDic = new();
@@ -60,8 +59,7 @@ public class UIController : MonoBehaviour
 
     void Awake()
     {
-        potsAndPlants3DDic = potsAndPlantsList.ToDictionary(x => x.key, x => x.val.ToDictionary(y => y.key, y => y.prefabs3D));
-        potsAndPlants2DDic = potsAndPlantsList.ToDictionary(x => x.key, x => x.val.ToDictionary(y => y.key, y => y.prefabs2D));
+        potsAndPlantsImagesDic = potsAndPlantsList.ToDictionary(x => x.key, x => x.val.ToDictionary(y => y.key, y => y.stateImages));
         potsAndSeedSpriteDic = potsAndSeedSpriteList.ToDictionary(x => x.key, x => x.val);
         plantDurationDic = plantDurationList.ToDictionary(x => x.key, x => x.val);
         location2D = tableSlot.GetComponent<RectTransform>();
@@ -77,7 +75,7 @@ public class UIController : MonoBehaviour
     {
         if (isTableSlotEmpty)
         {
-            potPanel.SetActive(true);  
+            potPanel.SetActive(true);
         }
     }
 
@@ -108,36 +106,30 @@ public class UIController : MonoBehaviour
         if (selectedPot is null || selectedSeed is null)
         { return; }
 
-        if(potsAndPlants3DDic.TryGetValue(selectedPot, out var plantTypeDic))
+        if (potsAndPlantsImagesDic.TryGetValue(selectedPot, out var plantTypeDic))
         {
             if (plantTypeDic.TryGetValue(selectedSeed, out var plantStates))
             {
-                GameObject plant = new(selectedPot+selectedSeed);
+                GameObject plant = new(selectedPot + selectedSeed);
 
-                plant.transform.SetParent(location3D);
                 plant.transform.localPosition = new Vector3(0, 0, 0);
 
-                GameObject plantInstance = Instantiate(newPlant, plant.transform);
+                GameObject plantInstance = Instantiate(newPlant, location3D);
+                plantInstance.name = selectedPot + selectedSeed;
+                Debug.Log("3D: " + plantInstance.transform.localPosition.ToString());
+
                 plantInstance.GetComponent<FlowersGrowth>().flowerStages = plantStates;
                 if (plantDurationDic.TryGetValue(selectedSeed, out var durations))
                 {
                     plantInstance.GetComponent<FlowersGrowth>().growthTimes = durations;
                 }
 
-                if (potsAndPlants2DDic.TryGetValue(selectedPot, out var plantTypeDic2D))
-                {
-                    if (plantTypeDic2D.TryGetValue(selectedSeed, out var plantStates2D))
-                    {
-                        GameObject plant2D = new(selectedPot + selectedSeed + "2D");
-                        plant2D.transform.SetParent(location2D);
-                        plant2D.transform.localPosition = new Vector3(0, 0, 0);
-
-                        GameObject plantInstance2D = Instantiate(newPlant, plant2D.transform);
-                        plantInstance2D.GetComponent<FlowersGrowth>().flowerStages = plantStates2D;
-                        plantInstance2D.GetComponent<FlowersGrowth>().growthTimes = durations;
-                        plantInstance2D.GetComponent<FlowersGrowth>().is2D = true;
-                    }
-                }
+                GameObject plantInstance2D = Instantiate(newPlant2d, location2D);
+                plantInstance2D.name = selectedPot + selectedSeed + "2D";
+                Debug.Log("2D: " + plantInstance2D.transform.localPosition.ToString());
+                plantInstance2D.GetComponent<FlowersGrowth>().flowerStages = plantStates;
+                plantInstance2D.GetComponent<FlowersGrowth>().growthTimes = durations;
+                plantInstance2D.GetComponent<FlowersGrowth>().is2dFlower = true;
             }
         }
     }

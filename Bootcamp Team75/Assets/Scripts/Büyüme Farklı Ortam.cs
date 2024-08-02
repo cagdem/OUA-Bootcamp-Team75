@@ -1,30 +1,25 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 
 public class FlowersGrowth : MonoBehaviour
 {
-    public GameObject[] flowerStages; // Çiçek aþamalarýný inspectorda atayýn (4 aþama bekleniyor)
+    private Quaternion startRotation;
+    public Sprite[] flowerStages; // Çiçek aþamalarýnýn sprite'larýný inspectorda atayýn (4 aþama bekleniyor)
     public float[] growthTimes; // Büyüme geçiþ sürelerini inspectorda atayýn (3 süre bekleniyor)
     private int currentStage = 0;
-    private float growthTimer = 0f;
+    private DateTime startTime;
     public Transform sunnyZone; // Güneþli bölgeyi inspectorda atayýn
     private bool isInSunnyZone = false;
-    private bool previouslyInSunnyZone = false;
     private float sunnyMultiplier = 3f;
-    private Quaternion startRotation;
     private bool isGrowthPaused = false; // Büyümeyi duraklatmak için yeni bayrak
-    public bool is2D = false; // 2D
-
+    private Image flowerImage; // Çiçeðin image bileþeni
+    private TimeSpan pausedDuration = TimeSpan.Zero; // Büyüme duraklatma süresi
+    private DateTime? pauseStartTime = null; // Büyüme duraklatýldýðýnda zamaný kaydetmek için deðiþken
+    public bool is2dFlower = false; // 2D çiçekler için bayrak
+    private SpriteRenderer spriteRenderer; // 3D çiçekler için spriteRenderer bileþeni
     void Start()
     {
-        if (is2D)
-        {
-            startRotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        else
-        {
-            startRotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
-        }
-
         // growthTimes dizisinin doðru sayýda eleman içerdiðinden emin olun
         if (growthTimes.Length != flowerStages.Length - 1)
         {
@@ -32,8 +27,26 @@ public class FlowersGrowth : MonoBehaviour
             return;
         }
 
-        // Ýlk tohum aþamasýný instantiate et
-        Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
+        // Baþlangýç zamanýný ayarla
+        startTime = DateTime.Now;
+
+        // Ýlk tohum aþamasýný ayarla
+        if(is2dFlower)
+        {
+            startRotation = Quaternion.Euler(0f, 0f, 0f);
+
+            flowerImage = GetComponent<Image>();
+            flowerImage.sprite = flowerStages[currentStage];
+            flowerImage.preserveAspect = true;
+        }
+        else
+        {
+
+            transform.SetPositionAndRotation(transform.position, Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z));
+
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = flowerStages[currentStage];
+        }
     }
 
     void Update()
@@ -48,78 +61,70 @@ public class FlowersGrowth : MonoBehaviour
 
         if (currentStage < growthTimes.Length)
         {
-            // Büyüme zamanlayýcýsýný güncelle
-            float currentGrowthTime = growthTimes[currentStage];
+            // Toplam büyüme süresini hesapla
+            TimeSpan totalGrowthTime = TimeSpan.FromSeconds(growthTimes[currentStage]);
             if (isInSunnyZone)
             {
-                currentGrowthTime /= sunnyMultiplier;
+                totalGrowthTime = TimeSpan.FromSeconds(growthTimes[currentStage] / sunnyMultiplier);
             }
 
-            // Bölgeler arasýnda geçiþ yaparken büyüme zamanlayýcýsýný ayarla
-            if (isInSunnyZone && !previouslyInSunnyZone)
-            {
-                growthTimer /= sunnyMultiplier;
-            }
-            else if (!isInSunnyZone && previouslyInSunnyZone)
-            {
-                growthTimer *= sunnyMultiplier;
-            }
-
-            previouslyInSunnyZone = isInSunnyZone;
-
-            growthTimer += Time.deltaTime;
+            // Geçen süreyi hesapla
+            TimeSpan elapsedTime = (DateTime.Now - startTime) - pausedDuration;
 
             // Kalan süreyi hesapla
-            float remainingTime = currentGrowthTime - growthTimer;
+            TimeSpan remainingTime = totalGrowthTime - elapsedTime;
 
             // Kalan süreyi debug için logla
-            Debug.Log($"Kalan Süre: {Mathf.CeilToInt(remainingTime)} saniye");
+            Debug.Log($"Kalan Süre: {Mathf.CeilToInt((float)remainingTime.TotalSeconds)} saniye");
 
-            if (growthTimer >= currentGrowthTime)
+            if (elapsedTime >= totalGrowthTime)
             {
                 // Bir sonraki aþamaya geç
                 Grow();
-                growthTimer = 0f; // Zamanlayýcýyý sýfýrla
+                startTime = DateTime.Now; // Baþlangýç zamanýný güncelle
+                pausedDuration = TimeSpan.Zero; // Duraklama süresini sýfýrla
             }
         }
     }
 
     public void Grow()
     {
-        // Mevcut aþama GameObject'ini yok et
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
-
         // Aþamayý artýr
         currentStage++;
 
-        // Bir sonraki aþamayý instantiate et
+        // Bir sonraki aþamayý ayarla
         if (currentStage < flowerStages.Length)
         {
-            Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
+            if (is2dFlower)
+            {
+                flowerImage.sprite = flowerStages[currentStage];
+            }
+            else
+            {
+                spriteRenderer.sprite = flowerStages[currentStage];
+            }
         }
     }
 
     public void AdjustGrowthTimer(float transitionFactor)
     {
-        growthTimer *= transitionFactor;
+        // Geçerli aþama için büyüme süresini ayarla
+        growthTimes[currentStage] *= transitionFactor;
     }
 
     // Görünümü sýfýrlamak için bu yöntemi ekleyin
     public void ResetAppearance()
     {
-        // Mevcut aþama GameObject'ini yok et
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
-
-        // Mevcut aþamayý instantiate et
+        // Mevcut aþamayý ayarla
         if (currentStage < flowerStages.Length)
         {
-            Instantiate(flowerStages[currentStage], transform.position, startRotation, transform);
+            if (is2dFlower)
+            {
+                flowerImage.sprite = flowerStages[currentStage];
+            }else
+            {
+                spriteRenderer.sprite = flowerStages[currentStage];
+            }
         }
     }
 
@@ -132,11 +137,23 @@ public class FlowersGrowth : MonoBehaviour
     // Büyümeyi duraklatmak ve devam ettirmek için bu yöntemleri ekleyin
     public void PauseGrowth()
     {
-        isGrowthPaused = true;
+        if (!isGrowthPaused)
+        {
+            isGrowthPaused = true;
+            pauseStartTime = DateTime.Now;
+        }
     }
 
     public void ResumeGrowth()
     {
-        isGrowthPaused = false;
+        if (isGrowthPaused)
+        {
+            isGrowthPaused = false;
+            if (pauseStartTime.HasValue)
+            {
+                pausedDuration += DateTime.Now - pauseStartTime.Value;
+            }
+            pauseStartTime = null;
+        }
     }
 }

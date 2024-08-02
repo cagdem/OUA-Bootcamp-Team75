@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Image image;
+    Image image;
     public Transform parentAfterDrag;
     Vector2? startDiff;
     public void Update()
     {
-        image = GetComponentInChildren<Image>();
+        image = GetComponent<Image>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

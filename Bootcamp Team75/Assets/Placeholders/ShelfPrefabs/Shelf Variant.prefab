@@ -110,6 +110,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2211336862156192567, guid: 4bf190080bde58f4cbc0092c4dd7d1d4, type: 3}
+      propertyPath: m_Spacing.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211336862156192567, guid: 4bf190080bde58f4cbc0092c4dd7d1d4, type: 3}
+      propertyPath: m_CellSize.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211336862156192567, guid: 4bf190080bde58f4cbc0092c4dd7d1d4, type: 3}
+      propertyPath: m_CellSize.y
+      value: 170
+      objectReference: {fileID: 0}
     - target: {fileID: 4836985062922436936, guid: 4bf190080bde58f4cbc0092c4dd7d1d4, type: 3}
       propertyPath: m_Name
       value: Shelf Variant
@@ -120,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5092265164341920403, guid: 4bf190080bde58f4cbc0092c4dd7d1d4, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5092265164341920403, guid: 4bf190080bde58f4cbc0092c4dd7d1d4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -180,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5092265164341920403, guid: 4bf190080bde58f4cbc0092c4dd7d1d4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 183
+      value: 133
       objectReference: {fileID: 0}
     - target: {fileID: 5092265164341920403, guid: 4bf190080bde58f4cbc0092c4dd7d1d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
