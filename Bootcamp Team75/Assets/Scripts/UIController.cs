@@ -13,7 +13,8 @@ public class UIController : MonoBehaviour
 
     public GameObject newPlant;
     public GameObject newPlant2d;
-    public Transform location3D;
+    public Transform[] locations3D;
+    public int plantCount = 0;
     public GameObject tableSlot;
     private RectTransform location2D;
     public bool isTableSlotEmpty = true;
@@ -111,17 +112,17 @@ public class UIController : MonoBehaviour
             if (plantTypeDic.TryGetValue(selectedSeed, out var plantStates))
             {
                 GameObject plant = new(selectedPot + selectedSeed);
-
+                plantDurationDic.TryGetValue(selectedSeed, out var durations);
                 plant.transform.localPosition = new Vector3(0, 0, 0);
-
-                GameObject plantInstance = Instantiate(newPlant, location3D);
-                plantInstance.name = selectedPot + selectedSeed;
-                Debug.Log("3D: " + plantInstance.transform.localPosition.ToString());
-
-                plantInstance.GetComponent<FlowersGrowth>().flowerStages = plantStates;
-                if (plantDurationDic.TryGetValue(selectedSeed, out var durations))
+                if (locations3D != null && locations3D.Length > plantCount)
                 {
+                    var location3D = locations3D[plantCount];
+                    GameObject plantInstance = Instantiate(newPlant, location3D);
+                    plantInstance.name = selectedPot + selectedSeed;
+                    Debug.Log("3D: " + plantInstance.transform.localPosition.ToString());
+                    plantInstance.GetComponent<FlowersGrowth>().flowerStages = plantStates;
                     plantInstance.GetComponent<FlowersGrowth>().growthTimes = durations;
+                    plantCount++;
                 }
 
                 GameObject plantInstance2D = Instantiate(newPlant2d, location2D);

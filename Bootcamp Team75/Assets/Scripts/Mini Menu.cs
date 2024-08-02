@@ -43,4 +43,6 @@ public class SettingsMenuController : MonoBehaviour
     {
         howToPlayUI.SetActive(false);
     }
+
+
 }
