@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public SettingsMenuController settingsMenuController; // Reference to SettingsMenuController
+
     public void StartGame()
     {
         SceneManager.LoadScene("MainScene"); // Replace "MainScene" with the name of your main game scene
@@ -10,6 +12,6 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenSettings()
     {
-        // Implement settings functionality here
+        settingsMenuController.OpenSettingsMenu(); // Open the settings menu
     }
 }
