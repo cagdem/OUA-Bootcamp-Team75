@@ -165,3 +165,5 @@ Assetler
 ## **Oyunun Tanıtım Videosu:**
 
 https://youtu.be/tN6zTQmqlbI?si=XJh4gTxnuWLcdI0t
+
+Not: Bitkilerin gelişim evreleri videoda gözükebilsin diye bitkilerin gelişim süreleri saat yerine saniye verilmiştir. 
